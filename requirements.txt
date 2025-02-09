@@ -1,0 +1,20 @@
+#Setup Mamba Env
+
+mamba create --name AlphaBuffet \
+    python=3.12 \
+    pytorch-cuda=12.1 \
+    pytorch cudatoolkit xformers -c pytorch -c nvidia -c xformers \
+    -y
+	
+mamba activate AlphaBuffet
+
+pip install "unsloth[colab-new] @ git+https://github.com/unslothai/unsloth.git"
+
+mamba install jupyterlab openai PyPDF2 bs4 spacy
+
+#Update Unsloth
+pip install --upgrade --force-reinstall --no-cache-dir --no-deps git+https://github.com/unslothai/unsloth.git
+pip install --upgrade --force-reinstall --no-cache-dir --no-deps git+https://github.com/unslothai/unsloth-zoo.git
+
+
+Even if the text contains some financial data or tables, if there's meaningful narrative content around it that provides lasting lessons, consider it suitable.
