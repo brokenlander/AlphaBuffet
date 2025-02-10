@@ -15,3 +15,10 @@ mamba install jupyterlab openai PyPDF2 bs4 spacy
 #Update Unsloth
 pip install --upgrade --force-reinstall --no-cache-dir --no-deps git+https://github.com/unslothai/unsloth.git
 pip install --upgrade --force-reinstall --no-cache-dir --no-deps git+https://github.com/unslothai/unsloth-zoo.git
+
+
+Even if the text contains some financial data or tables, if there's meaningful narrative content around it that provides lasting lessons, consider it suitable.
+
+
+####
+Talk about sintetic data, filtering done by llm, fix the details of the intelligent chunking
