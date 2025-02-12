@@ -10,7 +10,8 @@ mamba activate AlphaBuffet
 
 pip install "unsloth[colab-new] @ git+https://github.com/unslothai/unsloth.git"
 
-mamba install jupyterlab openai PyPDF2 bs4 spacy
+mamba install jupyterlab openai pymupdf huggingface-cli spacy
+python -m spacy download en_core_web_sm
 
 #Update Unsloth
 pip install --upgrade --force-reinstall --no-cache-dir --no-deps git+https://github.com/unslothai/unsloth.git
