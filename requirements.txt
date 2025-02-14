@@ -1,7 +1,7 @@
 #Setup Mamba Env
 
 mamba create --name AlphaBuffet \
-    python=3.12 \
+    python=3.11 \
     pytorch-cuda=12.1 \
     pytorch cudatoolkit xformers -c pytorch -c nvidia -c xformers \
     -y
@@ -10,7 +10,7 @@ mamba activate AlphaBuffet
 
 pip install "unsloth[colab-new] @ git+https://github.com/unslothai/unsloth.git"
 
-mamba install jupyterlab openai pymupdf huggingface-cli spacy
+mamba install jupyterlab openai anthropic pymupdf huggingface-cli spacy
 python -m spacy download en_core_web_sm
 
 #Update Unsloth
@@ -23,3 +23,30 @@ Even if the text contains some financial data or tables, if there's meaningful n
 
 ####
 Talk about sintetic data, filtering done by llm, fix the details of the intelligent chunking
+
+
+
+####################
+
+
+curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
+bash Miniforge3-$(uname)-$(uname -m).sh -b
+source ~/miniforge3/bin/activate
+mamba init
+
+mamba create --name AlphaBuffet \
+    python=3.11 \
+    pytorch-cuda=12.1 \
+    pytorch cudatoolkit xformers -c pytorch -c nvidia -c xformers \
+    -y
+
+mamba activate AlphaBuffet
+
+
+pip install "unsloth[colab-new] @ git+https://github.com/unslothai/unsloth.git"
+pip install --no-deps trl peft accelerate bitsandbytes
+
+mamba install -y jupyterlab openai anthropic pymupdf huggingface_hub spacy
+
+python -m ipykernel install --user --name=AlphaBuffet --display-name="Python (AlphaBuffet)"
+
