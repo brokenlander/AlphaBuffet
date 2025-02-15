@@ -19,25 +19,41 @@ The training data draws from three primary sources that capture Buffett's invest
 - Provides structured context to Buffet's investment and management philosophy
 
 ## Data Preprocessing
-The preprocessing pipeline (`DataPreprocessing.ipynb`) transforms our source materials into a format suitable for fine-tuning. The pipeline preserves Buffett's unique insights and communication style while creating high-quality training examples.
+The preprocessing pipeline (`DataPreprocessing.ipynb`) transforms source materials into high-quality training data while preserving Buffett's unique insights and communication style.
 
-### Preprocessing Strategy
-#### 1. Intelligent Chunking
-- Uses spaCy for sentence-based text segmentation
-- Creates overlapping chunks to maintain context and coherence:
-  - Maximum chunk size: 1500 characters
-  - Minimum chunk size: 500 characters
-  - 3-sentence overlap between chunks
+### Document Processing Strategy
+Two optimized chunking strategies are implemented:
 
-#### 2. Content Validation & Conversation Generation
-- Utilizes a local Llama 3.3 70B - 8bit model for:
-  - Validating chunks for meaningful content (filters out tables, headers, etc.)
-  - Transforming validated content into natural question-answer pairs
-- Maintains Buffett's distinctive communication style
-- Focuses on investment principles, business decisions, and market insights
+#### 1. Numbered Section Strategy
+- Splits text based on numbered Q&A sections (e.g., "1.", "2.") 
+- Designed for meeting transcripts to preserve dialogue context
+- Splits long sections while maintaining Q&A pairs
 
-### Implementation Details
-- Generates separate JSON files for each source document in ShareGPT format
-- Maintains clear links between training data and source documents
-- Allows selective reprocessing of specific documents
-- Filters out non-instructive content while preserving key insights
+#### 2. Sentence Overlap Strategy
+- Uses spaCy for sentence-based segmentation with overlap
+- Max chunk: 1600 chars, min: 500 chars, 2-sentence overlap
+- Optimized for narrative documents like letters
+
+### Content Processing Pipeline
+The pipeline uses Claude 3.5 Sonnet for sophisticated content processing:
+
+#### 1. Content Validation
+Filters content to ensure quality:
+- Approves broadly applicable business philosophy and market insights
+- Removes transaction specifics, isolated decisions, and raw financial data
+- Focuses on enduring principles over temporal details
+
+#### 2. Conversation Generation
+Transforms validated content into training pairs:
+- Generates contextual questions about key themes
+- Constructs answers using Buffett's exact words and ideas
+- Maintains his characteristic Q&A style
+- Outputs in ShareGPT format for training compatibility
+
+### Implementation Features
+- Processes PDF and TXT documents
+- Generates JSON files per source document
+- Combines into unified training datasets
+- Maintains source provenance
+
+This preprocessing approach creates high-quality training data that captures both Buffett's investment wisdom and his distinctive communication style.
