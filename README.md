@@ -53,7 +53,7 @@ Transforms validated content into training pairs:
 - Maintains source provenance
 
 ## Model Training
-Fine-tuning performed using Unsloth's optimized implementation:
+Fine-tuning ([`Training.ipynb`](Training.ipynb)) performed using Unsloth's optimized implementation:
 
 ### Base Model
 - Microsoft Phi-4 base model
