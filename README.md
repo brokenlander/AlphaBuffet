@@ -1,4 +1,4 @@
-# AlphaBuffet
+# AlphaBuffett
 A fine-tuned language model that distills Warren Buffett's investment philosophy through an optimized pipeline: intelligent preprocessing of historical documents, LoRA fine-tuning using Phi-4 as the base model, and FP8 dynamic quantization for efficient deployment. The model captures both Buffett's deep investment insights and his characteristic communication style from decades of written and spoken wisdom, preserving his unique perspective on business, markets, and long-term value creation.
 
 
@@ -6,18 +6,18 @@ A fine-tuned language model that distills Warren Buffett's investment philosophy
 The training data draws from three primary sources that capture Buffett's investment philosophy and decision-making process.
 
 ### 1. Berkshire Hathaway Shareholder Letters (1977-2023)
-- Annual letters written by Warren Buffet to Berkshire Hathaway shareholders
+- Annual letters written by Warren Buffett to Berkshire Hathaway shareholders
 - Contains detailed investment rationale, business principles, and market insights
 
 ### 2. Berkshire Annual Meeting Q&A Transcripts (1994-2022)
 - Transcribed questions and answers from annual shareholder meetings
-- Features Buffet's direct responses to shareholder inquiries
+- Features Buffett's direct responses to shareholder inquiries
 - Includes valuable insights on market conditions, investment decisions, and business philosophy
 
 ### 3. "The Essays of Warren Buffett: Lessons for Corporate America"
 - Curated collection edited by Lawrence Cunningham
 - Thematically organized writings that highlight key principles and teachings
-- Provides structured context to Buffet's investment and management philosophy
+- Provides structured context to Buffett's investment and management philosophy
 
 ## Data Preprocessing
 The preprocessing pipeline (`DataPreprocessing.ipynb`) transforms source materials into high-quality training data while preserving Buffett's unique insights and communication style.
@@ -97,4 +97,4 @@ Post-training quantization using LLM-Compressor:
 - Optimized for inference deployment
 - Weights and tokenizer saved in HuggingFace format
 
-Final model available at HuggingFace Hub: `brokenlander/AlphaBuffet-Phi-FP8-Dynamic`
+Final model available at HuggingFace Hub: `brokenlander/AlphaBuffett-Phi-FP8-Dynamic`
