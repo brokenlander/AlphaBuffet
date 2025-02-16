@@ -79,7 +79,7 @@ Fine-tuning performed using Unsloth's optimized implementation:
 
 ### Chat Template
 - Using Phi-4 template formatting with instruction-response pairs
-- Training focused on response generation only, masking instruction tokens to preserve the model's instruction-following capabilities.
+- Training focused on response generation only, masking instruction tokens to preserve the model's instruction-following capabilities
 
 ## Model Quantization
 Post-training quantization using LLM-Compressor:
