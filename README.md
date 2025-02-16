@@ -1,5 +1,5 @@
 # AlphaBuffett
-A fine-tuned language model that distills Warren Buffett's investment philosophy through an optimized pipeline: intelligent preprocessing of historical documents, LoRA fine-tuning using [Microsoft Phi-4](https://huggingface.co/microsoft/phi-4) as the base model, and FP8 dynamic quantization for efficient deployment. The model captures both Buffett's deep investment insights and his characteristic communication style from decades of written and spoken wisdom, preserving his unique perspective on business, markets, and long-term value creation.
+A fine-tuned language model that distills Warren Buffett's investment philosophy through an optimized pipeline: intelligent preprocessing of historical documents, LoRA fine-tuning using [Mistral Small 3](https://mistral.ai/en/news/mistral-small-3) as the base model, and FP8 dynamic quantization for efficient deployment. The model captures both Buffett's deep investment insights and his characteristic communication style from decades of written and spoken wisdom, preserving his unique perspective on business, markets, and long-term value creation.
 
 ## Dataset
 The training data draws from three primary sources that capture Buffett's investment philosophy and decision-making process.
@@ -55,7 +55,8 @@ Transforms validated content into training pairs:
 Fine-tuning ([`Training.ipynb`](Training.ipynb)) performed using [Unsloth's](https://github.com/unslothai/unsloth) optimized implementation:
 
 ### Base Model
-- [Microsoft Phi-4](https://huggingface.co/microsoft/phi-4) base model
+- [Mistral Small 3](https://mistral.ai/en/news/mistral-small-3) base model (non-instruct version)
+- Chosen over instruct model due to sufficient high-quality training data
 - Max sequence length: 8192 tokens
 - Full precision training (no 4-bit quantization)
 
@@ -77,7 +78,7 @@ Fine-tuning ([`Training.ipynb`](Training.ipynb)) performed using [Unsloth's](htt
 - Optimizer: AdamW 8-bit
 
 ### Chat Template
-- Using Phi-4 template formatting with instruction-response pairs
+- Using ChatML format for instruction-response pairs
 - Training focused on response generation only, masking instruction tokens to preserve the model's instruction-following capabilities
 
 ## Model Quantization
