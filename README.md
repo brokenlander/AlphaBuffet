@@ -1,6 +1,5 @@
 # AlphaBuffett
-A fine-tuned language model that distills Warren Buffett's investment philosophy through an optimized pipeline: intelligent preprocessing of historical documents, LoRA fine-tuning using Phi-4 as the base model, and FP8 dynamic quantization for efficient deployment. The model captures both Buffett's deep investment insights and his characteristic communication style from decades of written and spoken wisdom, preserving his unique perspective on business, markets, and long-term value creation.
-
+A fine-tuned language model that distills Warren Buffett's investment philosophy through an optimized pipeline: intelligent preprocessing of historical documents, LoRA fine-tuning using [Microsoft Phi-4](https://huggingface.co/microsoft/phi-4) as the base model, and FP8 dynamic quantization for efficient deployment. The model captures both Buffett's deep investment insights and his characteristic communication style from decades of written and spoken wisdom, preserving his unique perspective on business, markets, and long-term value creation.
 
 ## Dataset
 The training data draws from three primary sources that capture Buffett's investment philosophy and decision-making process.
@@ -31,7 +30,7 @@ Two optimized chunking strategies are implemented:
 - Splits long sections while maintaining Q&A pairs
 
 #### 2. Sentence Overlap Strategy
-- Uses spaCy for sentence-based segmentation with overlap
+- Uses [spaCy](https://spacy.io/) for sentence-based segmentation with overlap
 - Max chunk: 1600 chars, min: 500 chars, 2-sentence overlap
 - Optimized for narrative documents like letters
 
@@ -53,10 +52,10 @@ Transforms validated content into training pairs:
 - Maintains source provenance
 
 ## Model Training
-Fine-tuning ([`Training.ipynb`](Training.ipynb)) performed using Unsloth's optimized implementation:
+Fine-tuning ([`Training.ipynb`](Training.ipynb)) performed using [Unsloth's](https://github.com/unslothai/unsloth) optimized implementation:
 
 ### Base Model
-- Microsoft Phi-4 base model
+- [Microsoft Phi-4](https://huggingface.co/microsoft/phi-4) base model
 - Max sequence length: 8192 tokens
 - Full precision training (no 4-bit quantization)
 
@@ -82,7 +81,7 @@ Fine-tuning ([`Training.ipynb`](Training.ipynb)) performed using Unsloth's optim
 - Training focused on response generation only, masking instruction tokens to preserve the model's instruction-following capabilities
 
 ## Model Quantization
-Post-training quantization using LLM-Compressor:
+Post-training quantization using [LLM-Compressor](https://github.com/vllm-project/llm-compressor):
 
 ### Quantization Strategy
 - Method: FP8 Dynamic quantization
@@ -97,4 +96,4 @@ Post-training quantization using LLM-Compressor:
 - Optimized for inference deployment
 - Weights and tokenizer saved in HuggingFace format
 
-Final model available at HuggingFace Hub: `brokenlander/AlphaBuffett-Phi-FP8-Dynamic`
+Final model available at HuggingFace Hub: `brokenlander/AlphaBuffett-FP8-Dynamic`
