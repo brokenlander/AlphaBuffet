@@ -82,7 +82,7 @@ Fine-tuning ([`Training.ipynb`](Training.ipynb)) performed using [Unsloth's](htt
 - Training focused on response generation only, masking instruction tokens to preserve the model's instruction-following capabilities
 
 ## Model Quantization
-Post-training quantization using [LLM-Compressor](https://github.com/vllm-project/llm-compressor):
+Post-training quantization ([`Quantization.ipynb`](Quantization.ipynb)) using [LLM-Compressor](https://github.com/vllm-project/llm-compressor):
 
 ### Quantization Strategy
 - Method: FP8 Dynamic quantization
@@ -97,4 +97,6 @@ Post-training quantization using [LLM-Compressor](https://github.com/vllm-projec
 - Optimized for inference deployment
 - Weights and tokenizer saved in HuggingFace format
 
-Final model available at HuggingFace Hub: `brokenlander/AlphaBuffett-FP8-Dynamic`
+Models available at HuggingFace Hub:
+- Base model: [`brokenlander/AlphaBuffett`](https://huggingface.co/brokenlander/AlphaBuffett)
+- Quantized model: [`brokenlander/AlphaBuffett-FP8-Dynamic`](https://huggingface.co/brokenlander/AlphaBuffett-FP8-Dynamic)

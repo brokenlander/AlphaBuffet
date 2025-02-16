@@ -1,0 +1,25 @@
+name: AlphaBuffett
+channels:
+  - pytorch
+  - nvidia
+  - xformers
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - pytorch-cuda=12.1
+  - pytorch
+  - cudatoolkit
+  - xformers
+  - jupyterlab
+  - anthropic
+  - pymupdf
+  - huggingface_hub
+  - spacy
+  - pip:
+    - "unsloth[colab-new] @ git+https://github.com/unslothai/unsloth.git"
+    - trl
+    - peft
+    - accelerate
+    - bitsandbytes
+    - llmcompressor
