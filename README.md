@@ -50,3 +50,32 @@ Transforms validated content into training pairs:
 - Maintains his characteristic Q&A style
 - Outputs in ShareGPT format for training compatibility
 - Maintains source provenance
+
+## Model Training
+Fine-tuning performed using Unsloth's optimized implementation:
+
+### Base Model
+- Microsoft Phi-4 base model
+- Max sequence length: 8192 tokens
+- Full precision training (no 4-bit quantization)
+
+### LoRA Configuration
+- Rank: 32
+- Alpha: 32
+- Target modules: attention and feed-forward layers
+- Dropout: 0
+- Gradient checkpointing: enabled with Unsloth optimization
+
+### Training Parameters
+- Batch size: 2 per device
+- Gradient accumulation: 4 steps
+- Learning rate: 2e-4
+- Weight decay: 0.01
+- Scheduler: Linear
+- Epochs: 3
+- Mixed precision: bfloat16
+- Optimizer: AdamW 8-bit
+
+### Chat Template
+- Using Phi-4 template formatting with instruction-response pairs
+- Training focused on response generation only, masking instruction tokens to preserve the model's instruction-following capabilities.
