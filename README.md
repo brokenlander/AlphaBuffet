@@ -20,7 +20,7 @@ The training data draws from three primary sources that capture Buffett's invest
 - Provides structured context to Buffett's investment and management philosophy
 
 ## Data Preprocessing
-The preprocessing pipeline (`DataPreprocessing.ipynb`) transforms source materials into high-quality training data while preserving Buffett's unique insights and communication style.
+The preprocessing pipeline ([`DataPreprocessing.ipynb`](DataPreprocessing.ipynb)) transforms source materials into high-quality training data while preserving Buffett's unique insights and communication style.
 
 ### Document Processing Strategy
 Two optimized chunking strategies are implemented:
