@@ -79,3 +79,21 @@ Fine-tuning performed using Unsloth's optimized implementation:
 ### Chat Template
 - Using Phi-4 template formatting with instruction-response pairs
 - Training focused on response generation only, masking instruction tokens to preserve the model's instruction-following capabilities.
+
+## Model Quantization
+Post-training quantization using LLM-Compressor:
+
+### Quantization Strategy
+- Method: FP8 Dynamic quantization
+- Target: All linear layers except LM head
+- Weight quantization: Static, per-channel
+- Activation quantization: Dynamic, per-token
+- No calibration data required
+
+### Implementation
+- Applied to LoRA-merged model
+- Maintains model quality with reduced precision
+- Optimized for inference deployment
+- Weights and tokenizer saved in HuggingFace format
+
+Final model available at HuggingFace Hub: `brokenlander/AlphaBuffet-Phi-FP8-Dynamic`
