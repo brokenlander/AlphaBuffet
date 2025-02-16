@@ -1,5 +1,7 @@
 # AlphaBuffet
-This project aims to create a fine-tuned language model that captures Warren Buffet's investment philosophy and communication style. The model is built using QLoRA fine-tuning on the Llama 3.3 70B base model, incorporating decades of Buffet's written and spoken wisdom.
+A fine-tuned language model that distills Warren Buffett's investment philosophy through an optimized pipeline: intelligent preprocessing of historical documents, LoRA fine-tuning using Phi-4 as the base model, and FP8 dynamic quantization for efficient deployment. The model captures both Buffett's deep investment insights and his characteristic communication style from decades of written and spoken wisdom, preserving his unique perspective on business, markets, and long-term value creation.
+
+[rest of content remains the same...]
 
 ## Dataset
 The training data draws from three primary sources that capture Buffett's investment philosophy and decision-making process.
